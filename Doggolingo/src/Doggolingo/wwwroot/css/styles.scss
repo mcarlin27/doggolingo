@@ -1,0 +1,80 @@
+﻿body, html {
+    margin: 0;
+}
+
+.navbar {
+  background-color: rgba(70, 92, 45, 0.8);
+  width: 100%;
+  justify-content: space-between;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+    .nav-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1%;
+        margin-top: .5%;
+        .navbar-brand {
+            text-decoration: none;
+            font-size: 30px;
+            color: #FFF;
+            font-family: 'Slabo 27px', serif;
+            &:hover {
+                text-underline-position: below;
+                text-decoration: underline;
+                color: #FFF8E8;
+            }
+        }
+    }
+}
+
+.img1 {
+    background-image: url("../img/kili.jpg");
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    position: absolute;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-size: 800%;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-shadow: 3px 3px 6px #000;
+}
+
+
+
+.img2 {
+    background-image: url("../img/kili.JPG");
+    height: 800px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img3 {
+    background-image: url("../img/snowflake.jpg");
+    height: 800px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .img1, .img2, .img3 {
+        background-attachment: scroll;
+    }
+}
