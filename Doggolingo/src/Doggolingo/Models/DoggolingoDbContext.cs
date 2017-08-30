@@ -9,6 +9,9 @@ namespace Doggolingo.Models
         {
         }
 
+        public virtual DbSet<DogParent> DogParents { get; set; }
+        public virtual DbSet<Dog> Dogs { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Doggolingo; integrated security=True");
