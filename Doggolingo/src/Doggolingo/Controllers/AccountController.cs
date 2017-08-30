@@ -25,10 +25,12 @@ namespace Doggolingo.Controllers
         { //when user profiles are created, this will return a view with that user's profile passed in as the model
             return View();
         }
+
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -43,6 +45,7 @@ namespace Doggolingo.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> LoginNewUser(ApplicationUser user, string password)
         {
@@ -56,10 +59,12 @@ namespace Doggolingo.Controllers
                 return RedirectToAction("Register");
             }
         }
+
         public IActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -73,6 +78,7 @@ namespace Doggolingo.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> LogOff()
         {
