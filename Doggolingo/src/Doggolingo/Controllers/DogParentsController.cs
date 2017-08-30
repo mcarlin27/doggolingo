@@ -32,10 +32,12 @@ namespace Doggolingo.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(DogParent dogParent)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(DogParent dogParent, Dog dog)
         {
             dogParent.UserName = User.Identity.Name;
             db.DogParents.Add(dogParent);
+            db.Dogs.Add(dog);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

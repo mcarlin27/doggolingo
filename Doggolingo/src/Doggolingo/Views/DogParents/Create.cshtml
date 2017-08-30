@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Profile";
+}
+
+@model Doggolingo.Models.DogParent
+
+<h3>Complete Your Profile</h3>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-controller="DogParents" asp-action="Create">
+
+    </form>
+}
