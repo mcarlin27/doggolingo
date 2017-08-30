@@ -16,6 +16,14 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">Marilyn Carlin</a>
                 </div>
+                <div class="nav-links">
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="User" asp-action="Profile"></a>
+                    }
+                </div>
             </div>
         </div>
     </body>
