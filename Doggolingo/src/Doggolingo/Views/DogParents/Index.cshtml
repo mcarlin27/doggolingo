@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "@User.Identity.UserName";
+}
+@model Doggolingo.Models.DogParent
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h4>@Model.FirstName @Model.LastName</h4>
+        @if (Model.Dogs.Count != 0)
+        {
+            @foreach (var dog in Model.Dogs)
+            {
+                <h5>@dog.Name</h5>
+                <h5>@dog.Age</h5>
+            }
+        }
+        else
+        {
+            <h5><a asp-controller="Dogs" asp-action="Create">Please add your dog(s) to get started!</a></h5>
+        }
+    </div>
+}

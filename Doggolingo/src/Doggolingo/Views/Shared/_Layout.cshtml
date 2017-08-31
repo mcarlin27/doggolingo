@@ -21,7 +21,7 @@
                     <a asp-controller="Account" asp-action="Login">Login</a>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <a asp-controller="User" asp-action="Profile"></a>
+                        <a asp-controller="DogParent" asp-action="Index">@User.Identity.UserName</a>
                     }
                 </div>
             </div>
