@@ -2,29 +2,35 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <script src="~/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="~/css/styles.css" />
-    <script src="~/js/scrolling.js"></script>
     <title>@ViewBag.Title</title>
 </head>
-    <body>
-        <div>
-            @RenderBody()
-        </div>
-        <div class="navbar" role="navigation">
-            <div class="nav-wrapper">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Marilyn Carlin</a>
-                </div>
-                <div class="nav-links">
-                    <a asp-controller="Account" asp-action="Register">Register</a>
-                    <a asp-controller="Account" asp-action="Login">Login</a>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <a asp-controller="DogParent" asp-action="Index">@User.Identity.UserName</a>
-                    }
-                </div>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="navbar" role="navigation">
+        <div class="nav-wrapper">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Doggolingo</a>
+            </div>
+            <div class="nav-links">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Register", "Register", "Account")
+                }
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Login", "Login", "Account")
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Log Out", "LogOff", "Account")
+                    @Html.ActionLink("Profile", "Index", "DogParents")
+                }
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

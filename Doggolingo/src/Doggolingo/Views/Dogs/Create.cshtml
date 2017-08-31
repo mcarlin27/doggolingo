@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dog";
+}
+
+@model Doggolingo.Models.Dog
+
+<h3>Complete Your Dog's Profile</h3>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @required = "true" })
+        @Html.LabelFor(model => model.Age)
+        @Html.TextBoxFor(model => model.Age, new { @required = "true" })
+
+        <input type="submit" value="Register" />
+    }
+}
