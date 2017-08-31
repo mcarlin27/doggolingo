@@ -16,6 +16,8 @@ namespace Doggolingo.Models
 
         public DogParent()
         {
+            Streak = 0;
+            Treats = 0;
         }
     }
 }

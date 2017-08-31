@@ -8,9 +8,10 @@ using Doggolingo.Models;
 namespace Doggolingo.Migrations
 {
     [DbContext(typeof(DoggolingoDbContext))]
-    partial class DoggolingoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170831152134_AddDogParentConstructor")]
+    partial class AddDogParentConstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -74,17 +75,17 @@ namespace Doggolingo.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int?>("DogParentUserId");
-
                     b.Property<string>("Name");
 
                     b.Property<int>("Streak");
 
                     b.Property<int>("Treats");
 
+                    b.Property<int?>("UserId");
+
                     b.HasKey("DogId");
 
-                    b.HasIndex("DogParentUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Dogs");
                 });
@@ -218,9 +219,9 @@ namespace Doggolingo.Migrations
 
             modelBuilder.Entity("Doggolingo.Models.Dog", b =>
                 {
-                    b.HasOne("Doggolingo.Models.DogParent", "DogParent")
+                    b.HasOne("Doggolingo.Models.DogParent", "USer")
                         .WithMany("Dogs")
-                        .HasForeignKey("DogParentUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

@@ -12,12 +12,12 @@ namespace Doggolingo.Models
         public string Description { get; set; }
         public int Streak { get; set; }
         public int Treats { get; set; }
-        public virtual DogParent USer { get; set; }
+        public virtual DogParent DogParent { get; set; }
 
-        public DogParent FindUser(string UserName)
+        public DogParent FindDogParent(string UserName)
         {
-            DogParent thisUser = new DoggolingoDbContext().DogParents.FirstOrDefault(u => u.UserName == UserName);
-            return thisUser;
+            DogParent thisDogParent = new DoggolingoDbContext().DogParents.FirstOrDefault(u => u.UserName == UserName);
+            return thisDogParent;
         }
     }
 }

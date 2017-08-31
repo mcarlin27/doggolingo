@@ -10,6 +10,11 @@
 @if (User.Identity.IsAuthenticated)
 {
     <form asp-controller="DogParents" asp-action="Create">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.TextBoxFor(model => model.FirstName, new { @required = "true" })
+        @Html.LabelFor(model => model.LastName)
+        @Html.TextBoxFor(model => model.LastName, new { @required = "true" })
 
+        <input type="submit" value="Register" />
     </form>
 }
