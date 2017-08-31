@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Module Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Doggolingo.Models.Module
+
+<h2>@Model.Title</h2>
+<hr />
+@Html.DisplayNameFor(model => model.Difficulty): @Html.DisplayFor(model => model.Difficulty)
+
+@foreach (var lesson in Model.Lessons)
+{ 
+    @Html.ActionLink(@lesson.Title, "Details", "Lessons", new { id = lesson.LessonId })
+    @lesson.Description
+}
+
+
+<p>@Html.ActionLink("Back to list view", "Index")</p>
