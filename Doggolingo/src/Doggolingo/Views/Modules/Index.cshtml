@@ -10,7 +10,7 @@
     @foreach (var listModule in Model)
     {
         <li>
-            @Html.ActionLink("Details", "Details", new { id = listModule.ModuleId }) |
+            @Html.ActionLink(listModule.Title, "Details", new { id = listModule.ModuleId })
         </li>
     }
 </ul>
