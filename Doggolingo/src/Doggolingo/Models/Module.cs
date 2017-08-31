@@ -11,7 +11,6 @@ namespace Doggolingo.Models
         public int Difficulty { get; set; }
         public int Treats { get; set; }
         public virtual ICollection<Lesson> Lessons { get; set; }
-        public virtual ICollection<DogParent> DogParents { get; set; }
 
         public Module()
         {

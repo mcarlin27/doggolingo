@@ -11,6 +11,9 @@ namespace Doggolingo.Models
 
         public virtual DbSet<DogParent> DogParents { get; set; }
         public virtual DbSet<Dog> Dogs { get; set; }
+        public virtual DbSet<Module> Modules { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<Step> Steps { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

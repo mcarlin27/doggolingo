@@ -8,9 +8,10 @@ using Doggolingo.Models;
 namespace Doggolingo.Migrations
 {
     [DbContext(typeof(DoggolingoDbContext))]
-    partial class DoggolingoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170831185218_AddModuleLessonAndStep")]
+    partial class AddModuleLessonAndStep
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -107,60 +108,6 @@ namespace Doggolingo.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("DogParents");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Lesson", b =>
-                {
-                    b.Property<int>("LessonId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<int?>("ModuleId");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("LessonId");
-
-                    b.HasIndex("ModuleId");
-
-                    b.ToTable("Lessons");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Module", b =>
-                {
-                    b.Property<int>("ModuleId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Difficulty");
-
-                    b.Property<int?>("DogParentUserId");
-
-                    b.Property<string>("Title");
-
-                    b.Property<int>("Treats");
-
-                    b.HasKey("ModuleId");
-
-                    b.HasIndex("DogParentUserId");
-
-                    b.ToTable("Modules");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Step", b =>
-                {
-                    b.Property<int>("StepId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<int?>("LessonId");
-
-                    b.HasKey("StepId");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("Steps");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -275,27 +222,6 @@ namespace Doggolingo.Migrations
                     b.HasOne("Doggolingo.Models.DogParent", "DogParent")
                         .WithMany("Dogs")
                         .HasForeignKey("DogParentUserId");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Lesson", b =>
-                {
-                    b.HasOne("Doggolingo.Models.Module", "Module")
-                        .WithMany("Lessons")
-                        .HasForeignKey("ModuleId");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Module", b =>
-                {
-                    b.HasOne("Doggolingo.Models.DogParent")
-                        .WithMany("CompletedModules")
-                        .HasForeignKey("DogParentUserId");
-                });
-
-            modelBuilder.Entity("Doggolingo.Models.Step", b =>
-                {
-                    b.HasOne("Doggolingo.Models.Lesson", "Lesson")
-                        .WithMany("Steps")
-                        .HasForeignKey("LessonId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

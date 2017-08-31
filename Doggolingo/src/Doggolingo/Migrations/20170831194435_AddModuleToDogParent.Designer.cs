@@ -8,9 +8,10 @@ using Doggolingo.Models;
 namespace Doggolingo.Migrations
 {
     [DbContext(typeof(DoggolingoDbContext))]
-    partial class DoggolingoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170831194435_AddModuleToDogParent")]
+    partial class AddModuleToDogParent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

@@ -13,6 +13,7 @@ namespace Doggolingo.Models
         public int Treats { get; set; }
         public string UserName { get; set; } //from Identity.User
         public virtual ICollection<Dog> Dogs { get; set; }
+        public virtual ICollection<Module> CompletedModules { get; set; }
 
         public DogParent()
         {
