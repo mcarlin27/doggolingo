@@ -3,6 +3,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.markComplete').click(function () {
+            var moduleId = $(this).val();
+            console.log(moduleId);
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '@Url.Action("MarkComplete", "Modules")',
+                data: { moduleId },
+                success: function (result) {
+                }
+            });
+        });
+    });
+</script>
+
+
 @model Doggolingo.Models.Lesson
 
 <h2>@Model.Title</h2>
@@ -19,5 +37,6 @@
     }
 </ol>
 
+<button class="markComplete" data-id=model.Module.ModuleId>Finish!</button>
 
 <p>@Html.ActionLink("Back to list view", "Index")</p>

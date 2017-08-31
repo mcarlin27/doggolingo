@@ -8,6 +8,7 @@
 {
     <div class="text-center">
         <h4>@Model.FirstName @Model.LastName</h4>
+        <h4>Treats: @Model.Treats</h4>
         @if (Model.Dogs.Count != 0)
         {
             @foreach (var dog in Model.Dogs)
